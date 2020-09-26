@@ -125,3 +125,22 @@ patternMatchtest(List("Hi", "hello", "Greet"))
 patternMatchtest(234.456)
 
 
+val x:Double = 1.41453667
+
+(x * 1000).round.toDouble / 1000
+
+def pow(a:Double, exp : Int) : Double = {
+  def loop(acc:Double, exp:Int) : Double = {
+    if (exp == 1) acc
+    else loop(acc * a, exp-1)
+  }
+  loop(a, exp)
+}
+
+pow(10, 3)
+
+
+
+import scalaExamples.RationalNumber
+
+val rational = new RationalNumber(2)
