@@ -30,5 +30,15 @@ class HigherOrderFunctionSuite {
 
     assertEquals("cube(1) * cube(1) should be 1", 1, higherOrderFunction(cube, multiply, 1, 1))
 
+    assertEquals("Factorial(5) should be 120", 120, factorial(5))
+
+    assertEquals("Factorial for Negative numbers should be -1(Assumption)", -1, factorial(-5))
+
+    assertEquals("factorial(1) + factorial(1) should be 2", 2, higherOrderFunction(factorial, sum, 1, 1))
+
+    assertEquals("factorial(1) - factorial(1) should be 0", 0, higherOrderFunction(factorial, subtract, 1, 1))
+
+    assertEquals("factorial(1) * factorial(1) should be 1", 1, higherOrderFunction(factorial, multiply, 1, 1))
+
   }
 }

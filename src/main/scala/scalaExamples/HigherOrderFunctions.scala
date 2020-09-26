@@ -10,6 +10,15 @@ object HigherOrderFunctions {
     g(f(a), f(b))
   }
 
+  def factorial(n:Int) : Int = {
+    def loop(n:Int, acc:Int) : Int = {
+      if (n==1 || n==0) acc
+      else if (n > 1) loop(n-1, multiply(acc, n))
+      else -1
+    }
+    loop(n, 1)
+  }
+  
   def sum(a:Int, b:Int) : Int = a + b
 
   def multiply(a:Int, b:Int) : Int = a * b
@@ -24,33 +33,45 @@ object HigherOrderFunctions {
 
 
   def main(args:Array[String]) = {
-    val a:Int = 8 ; val b:Int = 10
-    val sum = higherOrderFunction(this.same, this.sum, a, b)
-    println(f"Sum of $a and $b is $sum")
+    val a:Int = 2 ; val b:Int = 4
+    val generalSum = higherOrderFunction(same, sum, a, b)
+    println(f"Sum of $a and $b is $generalSum")
 
-    val sum_of_squares = higherOrderFunction(this.square, this.sum, a, b)
+    val sum_of_squares = higherOrderFunction(square, sum, a, b)
     println(f"Sum of $a and $b is $sum_of_squares")
 
-    val sum_of_cubes = higherOrderFunction(this.cube, this.sum, a, b)
+    val sum_of_cubes = higherOrderFunction(cube, sum, a, b)
     println(f"Sum of $a and $b is $sum_of_cubes")
 
-    val difference = higherOrderFunction(this.same, this.subtract, a, b)
+    val difference = higherOrderFunction(same, subtract, a, b)
     println(f"Difference of $a and $b is $difference")
 
-    val difference_of_squares = higherOrderFunction(this.square, this.subtract, a, b)
+    val difference_of_squares = higherOrderFunction(square, subtract, a, b)
     println(f"Difference of Squares of $a and $b is $difference_of_squares")
 
-    val difference_of_cubes = higherOrderFunction(this.cube, this.subtract, a, b)
+    val difference_of_cubes = higherOrderFunction(cube, subtract, a, b)
     println(f"Difference of Cubes of $a and $b is $difference_of_cubes")
 
-    val product = higherOrderFunction(this.same, this.multiply, a, b)
+    val product = higherOrderFunction(same, multiply, a, b)
     println(f"Product of $a and $b is $product")
 
-    val product_of_squares = higherOrderFunction(this.square, this.multiply, a, b)
+    val product_of_squares = higherOrderFunction(square, multiply, a, b)
     println(f"Product of Squares of $a and $b is $product_of_squares")
 
-    val product_of_cubes = higherOrderFunction(this.cube, this.multiply, a, b)
+    val product_of_cubes = higherOrderFunction(cube, multiply, a, b)
     println(f"Product of Cubes of $a and $b is $product_of_cubes")
+
+    val fact = factorial(a)
+    println(f"Factorial of $a is $fact")
+
+    val sum_of_factorials = higherOrderFunction(factorial, sum, a, b)
+    println(f"Sum of Factorials of $a $b is $sum_of_factorials")
+
+    val difference_of_factorials = higherOrderFunction(factorial, subtract, a, b)
+    println(f"Difference of Factorials of $a $b is $difference_of_factorials")
+
+    val product_of_factorials = higherOrderFunction(factorial, multiply, a, b)
+    println(f"Product of Factorials of $a $b is $product_of_factorials")
 
   }
 }
